@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import LeftPanelOperations from "./components/LeftPanelOperations";
+import RightPanelForm from "./components/RightPanelForm";
+import StartGame from "./components/StartGame";
+import { useSelector } from "react-redux";
+import InfoGameStart from "./components/InfoGameStart";
+import { operationsState } from "./store/operations/operations";
 
 function App() {
+  const operations = useSelector(operationsState);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Math game</h1>
+      <a data-testid="link-me" href="https://github.com/fjulien">
+        <i>By me</i>
+      </a>
+      <div className="container">
+        <article>
+          {operations.isEmpty ? <InfoGameStart /> : <LeftPanelOperations />}
+        </article>
+        <div className="separation"></div>
+        <article>
+          {operations.isEmpty ? <StartGame /> : <RightPanelForm />}
+        </article>
+      </div>
     </div>
   );
 }

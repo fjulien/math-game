@@ -1,0 +1,27 @@
+.App {
+  ul {
+    list-style: none;
+  }
+  text-align: center;
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+    article {
+      width: 50%;
+    }
+  }
+  .separation {
+    border: 1px solid black;
+  }
+  .first-operation {
+    font-size: 2em;
+    margin: 15px;
+  }
+  .fail {
+    text-decoration: red wavy line-through;
+  }
+  .success {
+    color: green;
+  }
+}
