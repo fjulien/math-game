@@ -25,6 +25,7 @@ export const operationSlice = createSlice({
       state.endGame = true;
     },
     responseIsSuccess: (state, action) => {
+      state.score++;
       state.all[0].success = true;
     },
   },
