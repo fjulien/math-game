@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import operationSlice from "./operations/operations";
-import { thunk } from "thunk";
+import operationSlice from "./operations";
+import timerSlice from "./timer";
 
 export default configureStore({
   reducer: {
     operations: operationSlice,
-    middleware: [thunk],
+    timer: timerSlice,
   },
 });

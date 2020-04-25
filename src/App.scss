@@ -1,4 +1,7 @@
 .App {
+  a {
+    color: grey;
+  }
   ul {
     list-style: none;
   }
@@ -23,5 +26,8 @@
   }
   .success {
     color: green;
+  }
+  .hidden {
+    display: none;
   }
 }

@@ -3,7 +3,8 @@ import {
   getFirstResponse,
   addOperation,
   responseIsSuccess,
-} from "../store/operations/operations";
+  responseIsFail,
+} from "../stores/operations";
 import { useDispatch, useSelector } from "react-redux";
 function RightPanelForm() {
   const dispatch = useDispatch();
@@ -13,6 +14,8 @@ function RightPanelForm() {
     const resultNumber = parseInt(result);
     if (firstResponse === resultNumber) {
       dispatch(responseIsSuccess());
+    } else {
+      dispatch(responseIsFail());
     }
     dispatch(addOperation());
     setresult("");
@@ -21,7 +24,9 @@ function RightPanelForm() {
     let resultNumber = event.target.value;
     if (resultNumber >= 0 && resultNumber <= 81) setresult(resultNumber);
   }
+
   const [result, setresult] = useState("");
+
   return (
     <form onSubmit={response}>
       <input

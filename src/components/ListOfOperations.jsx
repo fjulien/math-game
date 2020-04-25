@@ -1,15 +1,20 @@
 import React from "react";
-import { operationsState } from "../store/operations/operations";
+import { operationsState } from "../stores/operations";
 import { useSelector } from "react-redux";
+import { isEndGame } from "../stores/timer";
 
-function LeftPanelOperations() {
+function ListOfOperations() {
   const { all } = useSelector(operationsState);
+  const isEnd = useSelector(isEndGame);
+
   function attributClass(operation, index) {
+    if (index === 0 && isEnd) return "hidden";
     if (index === 0) return "first-operation";
     return operation.success ? "success" : "fail";
   }
   return (
     <ul>
+      <li className={!isEnd ? "hidden" : ""}>End Game !!!</li>
       {all.map((operation, index) => (
         <li key={index} className={attributClass(operation, index)}>
           {operation.text}
@@ -20,4 +25,4 @@ function LeftPanelOperations() {
   );
 }
 
-export default LeftPanelOperations;
+export default ListOfOperations;

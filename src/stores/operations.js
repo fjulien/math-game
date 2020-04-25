@@ -6,27 +6,23 @@ export const operationSlice = createSlice({
   initialState: {
     all: [],
     isEmpty: true,
-    time: 0,
     score: 0,
-    endGame: false,
   },
   reducers: {
     start: (state, action) => {
       state.isEmpty = false;
-      state.endGame = false;
-      state.all.push(operation());
+      state.score = 0;
+      state.all = [operation()];
     },
     addOperation: (state) => {
       state.all = [operation(), ...state.all];
     },
-    startTimer: () => {},
-    stopTimer: () => {},
-    end: (state) => {
-      state.endGame = true;
-    },
-    responseIsSuccess: (state, action) => {
+    responseIsSuccess: (state) => {
       state.score++;
       state.all[0].success = true;
+    },
+    responseIsFail: (state) => {
+      state.score--;
     },
   },
   extraReducers: {},
@@ -49,6 +45,7 @@ export const {
   addOperation,
   end,
   responseIsSuccess,
+  responseIsFail,
 } = operationSlice.actions;
 
 // Attribut

@@ -1,19 +1,25 @@
 {
   "name": "math-game",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "main": "./public/index.html",
+  "main": "app.js",
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "helmet": "^3.22.0",
+    "logger": "0.0.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "thunk": "0.0.1"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "math-game-function": "^1.1.0",
@@ -23,9 +29,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf public/* && cp -rf  build/*  public",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-server": "nodemon node ./bin/start"
   },
   "eslintConfig": {
     "extends": "react-app"
