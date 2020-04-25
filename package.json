@@ -28,11 +28,11 @@
     "redux-devtools": "^3.5.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon node ./bin/start",
     "build": "react-scripts build && rm -rf public/* && cp -rf  build/*  public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "nodemon node ./bin/start"
+    "start-react": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
