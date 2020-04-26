@@ -4,6 +4,9 @@
   "private": true,
   "main": "app.js",
   "homepage": "https://math-gam-challenge.netlify.app/",
+  "engines": {
+    "node": "8.10.0"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.5",
     "@testing-library/jest-dom": "^4.2.4",
