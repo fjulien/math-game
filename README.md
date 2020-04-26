@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db68ee92-f3f3-4902-b3c8-208f77da5e1c/deploy-status)](https://app.netlify.com/sites/math-gam-challenge/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
