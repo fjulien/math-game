@@ -1,9 +1,16 @@
 {
   "name": "math-game",
+  "description": "",
   "version": "1.0.0",
   "private": true,
+  "readme": "README.md",
   "main": "app.js",
-  "homepage": "https://math-gam-challenge.netlify.app/",
+  "homepage": "https://math-s-game.herokuapp.com/",
+  "author": {
+    "name": "Fettinger Julien",
+    "email": "fettingerjulien@yahoo.fr",
+    "url": "https://github.com/fjulien"
+  },
   "engines": {
     "node": "12.16.2"
   },

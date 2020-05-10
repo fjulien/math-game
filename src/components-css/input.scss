@@ -1,0 +1,14 @@
+input {
+  width: max-content;
+  margin: 15px auto;
+  padding: 10px 30px;
+  transition-duration: 0.5s;
+  border: 0.5px solid grey;
+  border-bottom: 1px solid grey;
+
+  &:focus {
+    transition-duration: 0.5s;
+    outline: none;
+    box-shadow: 5px 5px 5px grey;
+  }
+}

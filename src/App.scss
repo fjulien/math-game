@@ -17,17 +17,16 @@
   .separation {
     border: 1px solid black;
   }
-  .first-operation {
-    font-size: 2em;
-    margin: 15px;
-  }
-  .fail {
-    text-decoration: red wavy line-through;
-  }
-  .success {
-    color: green;
-  }
   .hidden {
     display: none;
+  }
+  @media only screen and (max-width: 600px) {
+    .switch-view {
+      flex-direction: column-reverse;
+      article {
+        margin: 50px 0px;
+        width: 100%;
+      }
+    }
   }
 }

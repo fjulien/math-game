@@ -16,12 +16,12 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "build")));
 
-const whitelist = "http://localhost:4000";
-const devList = "http://localhost:4000";
+const productionEnvironment = "https://math-s-game.herokuapp.com";
+const devEnvironment = "http://localhost:4000";
 
 const corsOptions = {
   origin(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (productionEnvironment.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -29,15 +29,13 @@ const corsOptions = {
   },
 };
 
-const isProduction = process.env.NODE_ENV === "production";
 const origin = {
-  origin: isProduction ? corsOptions : devList,
+  origin: process.env.NODE_ENV === "production" ? corsOptions : devEnvironment,
 };
 
+app.use(cors(origin));
 app.use(compression());
 app.use(helmet());
-
-app.use(cors(origin));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));

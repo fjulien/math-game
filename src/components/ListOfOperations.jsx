@@ -2,6 +2,7 @@ import React from "react";
 import { operationsState } from "../stores/operations";
 import { useSelector } from "react-redux";
 import { isEndGame } from "../stores/timer";
+import "./ListOfOperations.scss";
 
 function ListOfOperations() {
   const { all } = useSelector(operationsState);
@@ -13,7 +14,7 @@ function ListOfOperations() {
     return operation.success ? "success" : "fail";
   }
   return (
-    <ul>
+    <ul className="ListOfOperations">
       <li className={!isEnd ? "hidden" : ""}>End Game !!!</li>
       {all.map((operation, index) => (
         <li key={index} className={attributClass(operation, index)}>

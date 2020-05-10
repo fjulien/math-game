@@ -1,0 +1,12 @@
+.ListOfOperations {
+  .first-operation {
+    font-size: 2em;
+    margin: 15px;
+  }
+  .fail {
+    text-decoration: red wavy line-through;
+  }
+  .success {
+    color: green;
+  }
+}

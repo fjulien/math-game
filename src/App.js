@@ -6,7 +6,7 @@ import StartGame from "./components/StartGame";
 import { useSelector } from "react-redux";
 import InfoGameStart from "./components/InfoGameStart";
 import { operationsState } from "./stores/operations";
-import { timeState, isEndGame } from "./stores/timer";
+import { isEndGame } from "./stores/timer";
 
 function App() {
   const operations = useSelector(operationsState);
@@ -18,7 +18,7 @@ function App() {
       <a data-testid="link-me" href="https://github.com/fjulien">
         <i>By FJULIEN</i>
       </a>
-      <div className="container">
+      <div className="container switch-view">
         <article>
           {operations.isEmpty ? <InfoGameStart /> : <ListOfOperations />}
         </article>
@@ -27,9 +27,6 @@ function App() {
           {operations.isEmpty || isEnd ? <StartGame /> : <RightPanelForm />}
         </article>
       </div>
-      <div>{`Temps: ${useSelector(timeState)}s | Score: ${
-        operations.score
-      }`}</div>
     </div>
   );
 }

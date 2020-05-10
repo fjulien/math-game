@@ -1,0 +1,10 @@
+.RightPanelForm {
+  display: flex;
+  flex-direction: column;
+  label {
+    p {
+      font-style: italic;
+      font-size: 0.8em;
+    }
+  }
+}

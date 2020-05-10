@@ -1,9 +1,9 @@
 {
   "short_name": "fjulien",
-  "name": "fettinger julien",
+  "name": "Fettinger Julien",
   "author": "fjulien",
   "version": "1.0.0",
-  "default_locale": "en",
+  "default_locale": "fr",
   "permissions": ["webNavigation"],
   "icons": [
     {
@@ -17,7 +17,7 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "developer": {
-    "name": "Fettinger julien",
+    "name": "Fettinger Julien",
     "url": "https://www.linkedin.com/in/julien-fettinger"
   }
 }
