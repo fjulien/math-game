@@ -18,7 +18,7 @@ function App() {
       <a data-testid="link-me" href="https://github.com/fjulien">
         <i>By FJULIEN</i>
       </a>
-      <div className="container switch-view">
+      <div className="container">
         <article>
           {operations.isEmpty ? <InfoGameStart /> : <ListOfOperations />}
         </article>

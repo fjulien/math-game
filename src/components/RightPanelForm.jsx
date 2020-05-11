@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createRef } from "react";
 import {
   getFirstResponse,
   addOperation,
@@ -11,11 +11,14 @@ import { operationsState } from "../stores/operations";
 import "./RightPanelForm.scss";
 
 function RightPanelForm() {
+  const textInput = createRef();
   const operations = useSelector(operationsState);
   const firstResponse = useSelector(getFirstResponse);
   const dispatch = useDispatch();
+
   function response(event) {
     event.preventDefault();
+    textInput.current.focus();
     const resultNumber = parseInt(result);
     if (firstResponse === resultNumber) {
       dispatch(responseIsSuccess());
@@ -42,6 +45,7 @@ function RightPanelForm() {
         name="response"
         autoFocus
         autoComplete="off"
+        ref={textInput}
         onChange={checkResultUser}
         value={result}
       />

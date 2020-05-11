@@ -1,3 +1,8 @@
+$phoneResponsive: only screen and
+  (
+    max-width: 600px,
+  );
+
 body {
   @import './components-css/button.scss';
   @import './components-css/input.scss';
