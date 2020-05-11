@@ -1,0 +1,13 @@
+dl {
+  margin: 10px;
+  dt {
+    font-size: 2em;
+  }
+  dd {
+    margin: 10px 20px;
+    text-align: justify;
+  }
+  dd:before {
+    content: '- ';
+  }
+}

@@ -35,7 +35,10 @@ function RightPanelForm() {
   return (
     <form className="RightPanelForm" onSubmit={response}>
       <input
-        type="text"
+        type="number"
+        step="1"
+        min="0"
+        max="81"
         name="response"
         autoFocus
         autoComplete="off"
@@ -44,8 +47,8 @@ function RightPanelForm() {
       />
       <label>
         <input type="submit" value="Validé" />
-        <p>ou appuyer sur ENTRER</p>
       </label>
+      <p>ou appuyer sur ENTRER</p>
       <div>{`Temps: ${useSelector(timeState)}s | Score: ${
         operations.score
       }`}</div>

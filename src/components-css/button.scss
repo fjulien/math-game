@@ -1,4 +1,4 @@
-$sizeBorder: 25px;
+$sizeBorder: 15px;
 
 button,
 input[type='submit'] {
@@ -9,11 +9,10 @@ input[type='submit'] {
   transition-duration: 0.5s;
   width: max-content;
   margin: 15px auto;
-  border-top-left-radius: 0px;
   &:hover {
-    border-bottom-right-radius: 0px;
     border-top-left-radius: $sizeBorder;
     transition-duration: 0.5s;
     box-shadow: 5px 5px 5px grey;
+    transform: translate(0px, -5px);
   }
 }

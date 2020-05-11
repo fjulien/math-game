@@ -15,9 +15,16 @@ function ListOfOperations() {
   }
   return (
     <ul className="ListOfOperations">
-      <li className={!isEnd ? "hidden" : ""}>End Game !!!</li>
+      <li className={!isEnd ? "hidden" : "show-response"}>
+        Fin de la partie !!!
+      </li>
       {all.map((operation, index) => (
-        <li key={index} className={attributClass(operation, index)}>
+        <li
+          key={index}
+          className={`${attributClass(operation, index)} ${
+            isEnd ? "show-response" : ""
+          }`}
+        >
           {operation.text}
           {operation.success ? operation.response : "?"}
         </li>

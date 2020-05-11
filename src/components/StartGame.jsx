@@ -13,7 +13,7 @@ function StartGame() {
 
   return (
     <div>
-      <button onClick={() => launchGame()}>Start</button>
+      <button onClick={() => launchGame()}>Démarrer</button>
     </div>
   );
 }

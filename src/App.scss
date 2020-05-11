@@ -22,9 +22,9 @@
   }
   @media only screen and (max-width: 600px) {
     .switch-view {
-      flex-direction: column-reverse;
+      flex-direction: column;
       article {
-        margin: 50px 0px;
+        margin: 20px 0px;
         width: 100%;
       }
     }

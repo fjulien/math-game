@@ -1,4 +1,5 @@
 .ListOfOperations {
+  padding-inline-start: 0px;
   .first-operation {
     font-size: 2em;
     margin: 15px;
@@ -8,5 +9,14 @@
   }
   .success {
     color: green;
+  }
+  @media only screen and (max-width: 600px) {
+    li {
+      display: none;
+    }
+    .first-operation,
+    .show-response {
+      display: block;
+    }
   }
 }
