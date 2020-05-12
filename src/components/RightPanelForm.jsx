@@ -6,13 +6,11 @@ import {
   responseIsFail,
 } from "../stores/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { timeState } from "../stores/timer";
-import { operationsState } from "../stores/operations";
+import Score from "./Score";
 import "./RightPanelForm.scss";
 
 function RightPanelForm() {
   const textInput = createRef();
-  const operations = useSelector(operationsState);
   const firstResponse = useSelector(getFirstResponse);
   const dispatch = useDispatch();
 
@@ -49,13 +47,11 @@ function RightPanelForm() {
         onChange={checkResultUser}
         value={result}
       />
-      <label>
-        <input type="submit" value="Validé" />
+      <label htmlFor="valid">
+        <input name="valid" type="submit" value="Validé" />
       </label>
       <p>ou appuyer sur ENTRER</p>
-      <div>{`Temps: ${useSelector(timeState)}s | Score: ${
-        operations.score
-      }`}</div>
+      <Score />
     </form>
   );
 }

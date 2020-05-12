@@ -1,5 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { makeRandomNumber, multiply } from "math-game-function";
+import Axios from "axios";
+
+export const wait = createAsyncThunk(
+  "users/fetchByIdStatus",
+  async (pseudo) => {
+    console.log(pseudo);
+    const response = await startApi(pseudo);
+    return response.data;
+  }
+);
 
 export const operationSlice = createSlice({
   name: "operations",
@@ -9,7 +19,7 @@ export const operationSlice = createSlice({
     score: 0,
   },
   reducers: {
-    start: (state, action) => {
+    start: (state) => {
       state.isEmpty = false;
       state.score = 0;
       state.all = [operation()];
@@ -25,7 +35,13 @@ export const operationSlice = createSlice({
       state.score--;
     },
   },
-  extraReducers: {},
+  // extraReducers: {
+  //   // Add reducers for additional action types here, and handle loading state as needed
+  //   [start.fulfilled]: (state, action) => {
+  //     // Add user to the state array
+  //     console.log(action.payload);
+  //   },
+  // },
 });
 
 export function operation() {
@@ -54,6 +70,13 @@ export const isEndGame = (state) => state.operations.endGame;
 export const getFirstResponse = (state) => {
   const size = state.operations.all.length;
   return size !== 0 ? state.operations.all[0].response : undefined;
+};
+
+export const startApi = async (pseudo) => {
+  const { data } = await Axios.post("/api/score", { pseudo });
+  console.log(pseudo);
+  console.log("la");
+  return data;
 };
 
 export default operationSlice.reducer;

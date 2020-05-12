@@ -1,18 +1,29 @@
 $sizeBorder: 15px;
+$white: white;
+$grey: grey;
+$black: black;
+
+@mixin effect {
+  border-top-left-radius: $sizeBorder;
+  transition-duration: 0.5s;
+  box-shadow: 5px 5px 5px $grey;
+  transform: translate(0px, -5px);
+}
 
 button,
 input[type='submit'] {
-  border: 3px solid black;
+  border: 3px solid $black;
   border-radius: $sizeBorder;
   padding: 10px 30px;
   font-size: 1.2em;
   transition-duration: 0.5s;
   width: max-content;
   margin: 15px auto;
+  background-color: $white;
   &:hover {
-    border-top-left-radius: $sizeBorder;
-    transition-duration: 0.5s;
-    box-shadow: 5px 5px 5px grey;
-    transform: translate(0px, -5px);
+    @include effect;
+  }
+  @media only screen and (max-width: 600px) {
+    @include effect;
   }
 }
