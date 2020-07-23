@@ -1,20 +1,21 @@
-const cookieParser = require("cookie-parser");
-const express = require("express");
-const httpErrors = require("http-errors");
-const logger = require("morgan");
-const path = require("path");
-const cors = require("cors");
-const helmet = require("helmet");
-const compression = require("compression");
+import users from "./routes/users";
+import cookieParser from "cookie-parser";
+import express, { json, urlencoded } from "express";
+import httpErrors from "http-errors";
+import logger from "morgan";
+import { join } from "path";
+import cors from "cors";
+import helmet from "helmet";
+import compression from "compression";
 
 const app = express();
 
 app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(json());
+app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(join(__dirname, "build")));
 
 const productionEnvironment = "https://math-s-game.herokuapp.com";
 const devEnvironment = "http://localhost:4000";
@@ -29,6 +30,8 @@ const corsOptions = {
   },
 };
 
+
+
 const origin = {
   origin: process.env.NODE_ENV === "production" ? corsOptions : devEnvironment,
 };
@@ -37,8 +40,10 @@ app.use(cors(origin));
 app.use(compression());
 app.use(helmet());
 
+app.use("/api/", users);
+
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(join(__dirname, "build", "index.html"));
 });
 
 // catch 404 and forward to error handler

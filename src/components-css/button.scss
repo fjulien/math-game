@@ -8,10 +8,10 @@ $black: black;
   transition-duration: 0.5s;
   box-shadow: 5px 5px 5px $grey;
   transform: translate(0px, -5px);
+  cursor: pointer;
 }
 
-button,
-input[type='submit'] {
+@mixin noEffect{
   border: 3px solid $black;
   border-radius: $sizeBorder;
   padding: 10px 30px;
@@ -20,8 +20,17 @@ input[type='submit'] {
   width: max-content;
   margin: 15px auto;
   background-color: $white;
-  &:hover {
+  cursor: not-allowed;
+}
+
+button,
+input[type='submit'] {
+  @include noEffect;
+  &:hover:enabled {
     @include effect;
+  }
+  &:disabled {
+    @include noEffect;
   }
   @media only screen and (max-width: 600px) {
     @include effect;

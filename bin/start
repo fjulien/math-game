@@ -6,6 +6,9 @@
 
 const debug = require('debug')('back:server');
 const http = require('http');
+require("@babel/register")({
+  presets: ["@babel/preset-env"]
+});
 
 const app = require('../app');
 /**

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { start } from "../stores/operations";
-import { decremente, initInternval, initTime } from "../stores/timer";
 import { useDispatch } from "react-redux";
 import Score from "./Score";
 import "./StartGame.scss";
+import { fetchUsers, userState } from "../stores/user";
+import { useSelector } from "react-redux";
+
 
 function StartGame() {
   const dispatch = useDispatch();
+  const [pseudo, setPseudo] = useState("");
+  const user = useSelector(userState);
 
   function launchGame(event) {
     event.preventDefault();
-    dispatch(start(pseudo));
-    dispatch(initTime());
-    dispatch(initInternval(setInterval(() => dispatch(decremente()), 1000)));
+    dispatch(fetchUsers(pseudo));
+    console.log(user)
   }
-
-  const [pseudo, setPseudo] = useState("");
 
   return (
     <form className="StartGame" onSubmit={(event) => launchGame(event)}>
@@ -30,7 +30,12 @@ function StartGame() {
         />
       </label>
       <label htmlFor="start">
-        <input name="start" type="submit" value="Démarrer" />
+        <input
+          name="start"
+          type="submit"
+          value="Démarrer"
+          disabled={pseudo.trim().length === 0}
+        />
       </label>
       <Score />
     </form>

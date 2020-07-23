@@ -5,13 +5,13 @@ class InfoGameStart extends Component {
     return (
       <div>
         <dl>
-          <dt>Jeu des tables de multiplaction</dt>
+          <dt>Révision des tables de multiplaction</dt>
           <dd>
             Les règles sont simples, une foi que vous avez rentré votre surnom,
             vous cliquez sur Démarrer.
           </dd>
           <dd>
-            Vous avez 30 secondes pour répondre le plus vite possible a ces
+            Vous avez 30 secondes pour répondre le plus vite possible à ces
             multiplications. Chaque bonnes réponses vous donne 1 point et chaque
             erreur vous enlève 1 point.
           </dd>
