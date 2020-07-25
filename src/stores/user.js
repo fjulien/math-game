@@ -33,12 +33,11 @@ export const userState = (state) => state.user;
 // Define a thunk that dispatches those action creators
 export const fetchUsers = (pseudo) => async (dispatch) => {
   dispatch(usersLoading());
-  const { status, data } = await Axios.post("/api/users", { pseudo });
+  const { status, data } = await Axios.post("/users", { pseudo });
   if (status !== 200) return;
   dispatch(usersReceived({ ...data, pseudo }));
   dispatch(start(pseudo));
-  dispatch(initTime());
-  dispatch(initInternval(setInterval(() => dispatch(decremente()), 1000)));
+
 };
 
 export default userSlice.reducer;

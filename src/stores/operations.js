@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { makeRandomNumber, multiply } from "math-game-function";
+import { decremente, initInternval, initTime } from "./timer";
 
 export const operationSlice = createSlice({
   name: "operations",
@@ -9,10 +10,11 @@ export const operationSlice = createSlice({
     score: 0,
   },
   reducers: {
-    start: (state) => {
+    startOperation: (state) => {
       state.isEmpty = false;
       state.score = 0;
       state.all = [operation()];
+      
     },
     addOperation: (state) => {
       state.all = [operation(), ...state.all];
@@ -40,7 +42,7 @@ export function operation() {
 }
 
 export const {
-  start,
+  startOperation,
   addOperation,
   end,
   responseIsSuccess,
@@ -53,5 +55,10 @@ export const getFirstResponse = (state) => {
   const size = state.operations.all.length;
   return size !== 0 ? state.operations.all[0].response : undefined;
 };
+export const start = () => (dispatch) => {
+  dispatch(initTime());
+  dispatch(startOperation());
+  dispatch(initInternval(setInterval(() => dispatch(decremente()), 1000)));
+}
 
 export default operationSlice.reducer;

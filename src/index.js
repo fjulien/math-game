@@ -1,12 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import "./index.scss";
 import App from "./App";
 import store from "./stores/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import packageJson from "../package.json";
+import axios from "axios";
 
-ReactDOM.render(
+axios.defaults.baseURL = `${process.env.BUILD_ENV === "production" ? packageJson.homepage : packageJson.devUrl.node}api/`;
+
+render(
   <React.StrictMode>
     <Provider store={store}>
       <App />

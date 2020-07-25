@@ -7,6 +7,7 @@ import { join } from "path";
 import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
+import packageJson from "./package.json";
 
 const app = express();
 
@@ -17,12 +18,11 @@ app.use(cookieParser());
 
 app.use(express.static(join(__dirname, "build")));
 
-const productionEnvironment = "https://math-s-game.herokuapp.com";
-const devEnvironment = "http://localhost:4000";
+const url = process.env.NODE_ENV === "production"? packageJson.homepage : packageJson.devUrl.node;
 
 const corsOptions = {
   origin(origin, callback) {
-    if (productionEnvironment.indexOf(origin) !== -1) {
+    if (url.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -30,10 +30,11 @@ const corsOptions = {
   },
 };
 
-
-
 const origin = {
-  origin: process.env.NODE_ENV === "production" ? corsOptions : devEnvironment,
+  origin:
+    process.env.NODE_ENV === "production"
+      ? corsOptions
+      : "*",
 };
 
 app.use(cors(origin));
