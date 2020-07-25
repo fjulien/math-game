@@ -8,7 +8,9 @@ import * as serviceWorker from "./serviceWorker";
 import packageJson from "../package.json";
 import axios from "axios";
 
-axios.defaults.baseURL = `${process.env.BUILD_ENV === "production" ? packageJson.homepage : packageJson.devUrl.node}api/`;
+axios.defaults.baseURL = process.env.BUILD_ENV === "production" 
+? packageJson.homepage 
+: packageJson.devUrl.node + "api/";
 
 render(
   <React.StrictMode>
