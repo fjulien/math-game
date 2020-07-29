@@ -61,8 +61,13 @@ app.use((err, req, res, next) => {
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.json(err);
+  console.error(err);
+  if (err.status === 404) {
+    res.sendFile(join(__dirname, "./public/pages/error404.html"));
+  } else {
+    res.status(err.status || 500);
+    res.json(err);
+  }
 });
 
 app.listen(process.env.PORT || 4000, () => {

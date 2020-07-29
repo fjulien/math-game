@@ -1,12 +1,13 @@
 #!/bin/bash
 
-PROJECT_PATH="/home/julien/Projets_dev/math-game"
+PROJECT_PATH="/home/julien/Projets_dev/brain-challenge"
 
 buildToProd() {
   echo "Build and publish on Github" $PWD date
   if [ $PWD = $PROJECT_PATH ]; then
     npm run-script build-prod
     git add * 
+    git commit -m "Auto commit - Deployment on the prod"
     git push origin master
     git status
     npm run-script build-dev

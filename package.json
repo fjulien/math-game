@@ -1,5 +1,5 @@
 {
-  "name": "math-game",
+  "name": "brain-challenge",
   "description": "",
   "version": "1.0.0",
   "private": true,
@@ -58,8 +58,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-react": "react-scripts start",
-    "post-prod": "./build.sh", 
-    "open": "firefox $npm_package_devUrl"
+    "post-prod": "./build.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
