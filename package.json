@@ -52,13 +52,13 @@
     "redux-devtools": "^3.5.0"
   },
   "scripts": {
-    "start": "BUILD_ENV=production && react-scripts build && nodemon --exec babel-node ./app.js",
+    "start": "BUILD_ENV=production && nodemon --exec babel-node ./app.js",
     "start-node": "nodemon --exec babel-node ./app.js",
+    "start-react": "react-scripts start",
     "build-prod": "BUILD_ENV=production && react-scripts build",
     "build-dev": "BUILD_ENV=developper && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-react": "react-scripts start",
     "post-prod": "./build.sh"
   },
   "eslintConfig": {
