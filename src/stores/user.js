@@ -19,7 +19,6 @@ const userSlice = createSlice({
       state.loading = false;
       state.pseudo = pseudo;
       state.id = id;
-      console.log({ id, pseudo } );
     },
   },
 });
@@ -29,6 +28,7 @@ export const userState = (state) => state.user;
 
 export const fetchUsers = (pseudo) => async (dispatch) => {
   dispatch(usersLoading());
+  console.log('la')
   const { status, data } = await Axios.post("/users", { pseudo });
   if (status !== 200) return;
   dispatch(usersReceived({ ...data, pseudo }));

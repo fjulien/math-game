@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Math game</h1>
+      <h1>Brain challenge</h1>
       <a data-testid="link-me" href={packageJson.author.url}>
         <i>By FJULIEN</i>
       </a>

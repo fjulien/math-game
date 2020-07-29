@@ -7,8 +7,8 @@
   "main": "app.js",
   "homepage": "https://brain-challenge.herokuapp.com",
   "devUrl": {
-    "node": "http://localhost:4000",
-    "react": "http://localhost:3000"
+    "node": "http://localhost:4000/",
+    "react": "http://localhost:3000/"
   },
   "author": {
     "name": "Fettinger Julien",

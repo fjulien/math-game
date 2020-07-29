@@ -9,9 +9,9 @@ import packageJson from "../package.json";
 import { defaults } from "axios";
 
 defaults.baseURL =
-  process.env.BUILD_ENV === "production"
+  (process.env.BUILD_ENV === "production"
     ? packageJson.homepage
-    : packageJson.devUrl.node + "api/";
+    : packageJson.devUrl.node) + "api/";
 
 render(
   <React.StrictMode>

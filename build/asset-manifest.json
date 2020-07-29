@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://brain-challenge.herokuapp.com/static/css/main.2092172c.chunk.css",
-    "main.js": "https://brain-challenge.herokuapp.com/static/js/main.10754adf.chunk.js",
-    "main.js.map": "https://brain-challenge.herokuapp.com/static/js/main.10754adf.chunk.js.map",
-    "runtime-main.js": "https://brain-challenge.herokuapp.com/static/js/runtime-main.4d105f4c.js",
-    "runtime-main.js.map": "https://brain-challenge.herokuapp.com/static/js/runtime-main.4d105f4c.js.map",
-    "static/js/2.15480058.chunk.js": "https://brain-challenge.herokuapp.com/static/js/2.15480058.chunk.js",
-    "static/js/2.15480058.chunk.js.map": "https://brain-challenge.herokuapp.com/static/js/2.15480058.chunk.js.map",
-    "index.html": "https://brain-challenge.herokuapp.com/index.html",
-    "precache-manifest.8f1b05bc22b5464a4ff1718251060a7a.js": "https://brain-challenge.herokuapp.com/precache-manifest.8f1b05bc22b5464a4ff1718251060a7a.js",
-    "service-worker.js": "https://brain-challenge.herokuapp.com/service-worker.js",
-    "static/css/main.2092172c.chunk.css.map": "https://brain-challenge.herokuapp.com/static/css/main.2092172c.chunk.css.map",
-    "static/js/2.15480058.chunk.js.LICENSE.txt": "https://brain-challenge.herokuapp.com/static/js/2.15480058.chunk.js.LICENSE.txt"
+    "main.css": "http://localhost:4000/static/css/main.2092172c.chunk.css",
+    "main.js": "http://localhost:4000/static/js/main.8f0229d4.chunk.js",
+    "main.js.map": "http://localhost:4000/static/js/main.8f0229d4.chunk.js.map",
+    "runtime-main.js": "http://localhost:4000/static/js/runtime-main.7bcdf2e3.js",
+    "runtime-main.js.map": "http://localhost:4000/static/js/runtime-main.7bcdf2e3.js.map",
+    "static/js/2.15480058.chunk.js": "http://localhost:4000/static/js/2.15480058.chunk.js",
+    "static/js/2.15480058.chunk.js.map": "http://localhost:4000/static/js/2.15480058.chunk.js.map",
+    "index.html": "http://localhost:4000/index.html",
+    "precache-manifest.75735da8ab134f058f2f66fe79cb189c.js": "http://localhost:4000/precache-manifest.75735da8ab134f058f2f66fe79cb189c.js",
+    "service-worker.js": "http://localhost:4000/service-worker.js",
+    "static/css/main.2092172c.chunk.css.map": "http://localhost:4000/static/css/main.2092172c.chunk.css.map",
+    "static/js/2.15480058.chunk.js.LICENSE.txt": "http://localhost:4000/static/js/2.15480058.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d105f4c.js",
+    "static/js/runtime-main.7bcdf2e3.js",
     "static/js/2.15480058.chunk.js",
     "static/css/main.2092172c.chunk.css",
-    "static/js/main.10754adf.chunk.js"
+    "static/js/main.8f0229d4.chunk.js"
   ]
 }
