@@ -5,15 +5,19 @@ PROJECT_PATH="/home/julien/Projets_dev/brain-challenge"
 buildToProd() {
   echo "Build and publish on Github" $PWD date
   if [ $PWD = $PROJECT_PATH ]; then
+    PUBLIC_URL=https://brain-challenge.herokuapp.com/
+    REACT_APP_API_URL=https://brain-challenge.herokuapp.com/
     npm run-script build-prod
-    git add * 
+    git add *
     git commit -m "Auto commit - Deployment on the prod"
     git push origin master
     git status
+    PUBLIC_URL=http://localhost:4000/
+    REACT_APP_API_URL=http://localhost:4000/
     npm run-script build-dev
-    echo "Success"
+    echo "Publish SUCCESS"
   else
-    echo "Fail"
+    echo "Publish Fail"
   fi
 
 }
@@ -21,16 +25,7 @@ buildToProd() {
 for param in "$@"; do
   case $param in
   buildToProd)
-    echo "Really ? You want to clean ?"
-    select yn in "Yes" "No"; do
-      case $yn in
-      Yes)
-        buildToProd
-        break
-        ;;
-      No) exit ;;
-      esac
-    done
+    buildToProd
     ;;
   *)
     echo "Invalid argument : $param"
