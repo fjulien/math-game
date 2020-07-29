@@ -52,7 +52,8 @@
     "redux-devtools": "^3.5.0"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node ./app.js",
+    "start": "BUILD_ENV=production && react-scripts build && nodemon --exec babel-node ./app.js",
+    "start-node": "nodemon --exec babel-node ./app.js",
     "build-prod": "BUILD_ENV=production && react-scripts build",
     "build-dev": "BUILD_ENV=developper && react-scripts build",
     "test": "react-scripts test",
