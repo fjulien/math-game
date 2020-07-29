@@ -1,4 +1,3 @@
-import users from "./routes/users";
 import cookieParser from "cookie-parser";
 import express, { json, urlencoded } from "express";
 import httpErrors from "http-errors";
@@ -8,6 +7,9 @@ import cors from "cors";
 import helmet from "helmet";
 import compression from "compression";
 import packageJson from "./package.json";
+import mountRoutes from "./routes";
+
+require("dotenv").config();
 
 const app = express();
 
@@ -18,7 +20,10 @@ app.use(cookieParser());
 
 app.use(express.static(join(__dirname, "build")));
 
-const url = process.env.NODE_ENV === "production"? packageJson.homepage : packageJson.devUrl.node;
+const url =
+  process.env.NODE_ENV === "production"
+    ? packageJson.homepage
+    : packageJson.devUrl.node;
 
 const corsOptions = {
   origin(origin, callback) {
@@ -31,17 +36,14 @@ const corsOptions = {
 };
 
 const origin = {
-  origin:
-    process.env.NODE_ENV === "production"
-      ? corsOptions
-      : "*",
+  origin: process.env.NODE_ENV === "production" ? corsOptions : "*",
 };
 
 app.use(cors(origin));
 app.use(compression());
 app.use(helmet());
 
-app.use("/api/", users);
+mountRoutes(app);
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "build", "index.html"));
@@ -63,4 +65,6 @@ app.use((err, req, res, next) => {
   res.json(err);
 });
 
-module.exports = app;
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Server listening`);
+});

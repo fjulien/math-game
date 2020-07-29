@@ -6,11 +6,12 @@ import store from "./stores/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import packageJson from "../package.json";
-import axios from "axios";
+import { defaults } from "axios";
 
-axios.defaults.baseURL = process.env.BUILD_ENV === "production" 
-? packageJson.homepage 
-: packageJson.devUrl.node + "api/";
+defaults.baseURL =
+  process.env.BUILD_ENV === "production"
+    ? packageJson.homepage
+    : packageJson.devUrl.node + "api/";
 
 render(
   <React.StrictMode>

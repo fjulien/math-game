@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Axios from "axios";
 import { start } from "./operations";
-import { decremente, initInternval, initTime } from "./timer";
-// First, define the reducer and action creators via `createSlice`
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -13,7 +12,6 @@ const userSlice = createSlice({
   },
   reducers: {
     usersLoading(state) {
-      // Use a "state machine" approach for loading state instead of booleans
       state.loading = true;
       console.log("action");
     },
@@ -26,11 +24,9 @@ const userSlice = createSlice({
   },
 });
 
-// Destructure and export the plain action creators
 export const { usersLoading, usersReceived } = userSlice.actions;
 export const userState = (state) => state.user;
 
-// Define a thunk that dispatches those action creators
 export const fetchUsers = (pseudo) => async (dispatch) => {
   dispatch(usersLoading());
   const { status, data } = await Axios.post("/users", { pseudo });

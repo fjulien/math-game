@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import InfoGameStart from "./components/InfoGameStart";
 import { operationsState } from "./stores/operations";
 import { isEndGame } from "./stores/timer";
+import packageJson from "../package.json";
 
 function App() {
   const operations = useSelector(operationsState);
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Math game</h1>
-      <a data-testid="link-me" href="https://github.com/fjulien">
+      <a data-testid="link-me" href={packageJson.author.url}>
         <i>By FJULIEN</i>
       </a>
       <div className="container">
