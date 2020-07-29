@@ -46,7 +46,7 @@ app.use(helmet());
 mountRoutes(app);
 
 app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "build", "index.html"));
+  res.sendFile(join(__dirname, "./public/pages/error404.html"));
 });
 
 // catch 404 and forward to error handler

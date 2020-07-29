@@ -55,8 +55,8 @@
     "start": "BUILD_ENV=production && nodemon --exec babel-node ./app.js",
     "start-node": "nodemon --exec babel-node ./app.js",
     "start-react": "react-scripts start",
-    "build-prod": "BUILD_ENV=production && PUBLIC_URL=$npm_package_homepage && REACT_APP_API_URL=$npm_package_homepage && react-scripts build",
-    "build-dev": "BUILD_ENV=developper && PUBLIC_URL=$npm_package_devUrl_node && REACT_APP_API_URL=$npm_package_devUrl_node && react-scripts build",
+    "build-prod": "BUILD_ENV=production && react-scripts build",
+    "build-dev": "BUILD_ENV=developper && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "post-prod": "./build.sh"

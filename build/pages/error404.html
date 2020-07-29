@@ -5,28 +5,33 @@
     <meta name="description" content="" />
     <meta name="keywords" content="HTML,CSS,JavaScript,SCSS,JSX" />
     <meta name="author" content="fjulien" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicons/favicon404.ico" />
+    <link rel="shortcut icon" href="https://brain-challenge.herokuapp.com/favicons/favicon404.ico" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" type="text/css" href="error404.css">
+    <link rel="manifest" href="https://brain-challenge.herokuapp.com/manifest.json" />
+    <link rel="stylesheet" type="text/css" href="https://brain-challenge.herokuapp.com/pages/error404.css" />
     <title>Brain challenge</title>
   </head>
   <body>
-    %main.container
-	- (1..40).each do |i|
-		%span.particle 4
-	
-	- (1..40).each do |i|
-		%span.particle 0
-		
-	%article.content
-		%p Damnit stranger,
-		%p You got lost in the <strong>404</strong> galaxy.
-		%p
-			%button Go back to earth.
+    <p class="center">
+      Space Invadors destroyed this page! Take revenge on them! <br />
+      Use <span class="label label-danger">Space</span> to shoot and
+      <span class="label label-danger">←</span>&#160;<span
+        class="label label-danger"
+        >→</span
+      >
+      to move!&#160;&#160;&#160;<button
+        class="btn btn-default btn-xs"
+        id="restart"
+      >
+        Restart
+      </button>
+    </p>
+
+    <canvas id="space-invaders" />
+    <script src="https://brain-challenge.herokuapp.com/pages/error404.js"></script>
   </body>
 </html>
